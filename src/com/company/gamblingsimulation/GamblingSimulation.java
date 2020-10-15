@@ -3,7 +3,7 @@ package com.company.gamblingsimulation;
 public class GamblingSimulation {
     static final int STAKE = 100;
     static final int BET = 1;
-    static final int win = 1;
+    static final int WIN = 1;
 
     public static void main(String[] args) {
         resignStake();
@@ -12,7 +12,7 @@ public class GamblingSimulation {
     // UC-2 Win OR Loose
     public static int winLoose() {
         int random = (int) Math.round(Math.random());
-        if (random == win) {
+        if (random == WIN) {
             return 1;
         } else {
             return 0;
@@ -20,17 +20,17 @@ public class GamblingSimulation {
         }
     }
 
-    //UC-3 IF target hits or stop loss hits
+    //UC-3 And UC- 4 IF target hits or stop loss hits
     public static void resignStake() {
         int noOfTimeWon = 0;
         int noOfTimeloss = 0;
-        for (int i =0;i<20;i++) {
+        for (int i =0; i<20; i++) {
             int cash = STAKE;
             final int target = 150;
             final int stop = 50;
             while (cash < target && cash > stop) {
                 int random = winLoose();
-                if (random == win) {
+                if (random == WIN) {
                     cash = cash + BET;
                 } else {
                     cash = cash - BET;
