@@ -1,8 +1,8 @@
 package com.company.gamblingsimulation;
 
 public class GamblingSimulation {
-    public static int STAKE = 100;
-    public static int BET=1;
+     static int STAKE = 100;
+     static int BET=1;
 
     public static void main(String[] args) {
         winLoose();
@@ -23,6 +23,11 @@ public class GamblingSimulation {
                 System.out.println("Loose");
                 STAKE=STAKE-BET;
             }
+        }
+        if (STAKE>=150){
+            System.out.println("WINnnnnnnnnnnnnnnnn");
+        }else {
+            System.out.println("Losssssssssssss");
         }
 
     }
