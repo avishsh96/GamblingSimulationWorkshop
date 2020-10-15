@@ -4,9 +4,13 @@ public class GamblingSimulation {
     static final int STAKE = 100;
     static final int BET = 1;
     static final int WIN = 1;
+    static int noOfTimeWon = 0;
+    static int cashWon=0;
+    static int noOfTimeLoss = 0;
+    static int cashLow=0;
 
     public static void main(String[] args) {
-        resignStake();
+        winLoose20Days();
     }
 
     // UC-2 Win OR Loose
@@ -20,31 +24,38 @@ public class GamblingSimulation {
         }
     }
 
-    //UC-3 And UC- 4 IF target hits or stop loss hits
+    //UC-3 IF target hits or stop loss hits
     public static void resignStake() {
-        int noOfTimeWon = 0;
-        int noOfTimeloss = 0;
-        for (int i =0; i<20; i++) {
-            int cash = STAKE;
-            final int target = 150;
-            final int stop = 50;
-            while (cash < target && cash > stop) {
-                int random = winLoose();
-                if (random == WIN) {
-                    cash = cash + BET;
-                } else {
-                    cash = cash - BET;
-                }
-            }
-            if (cash == 150) {
-                System.out.println("Gambler Won");
-                noOfTimeWon++;
+        int cash = STAKE;
+        final int target = 150;
+        final int stop = 50;
+        while (cash < target && cash > stop) {
+            int random = winLoose();
+            if (random == WIN) {
+                cash = cash + BET;
             } else {
-                System.out.println("Gambler Loose");
-                noOfTimeloss++;
+                cash = cash - BET;
             }
         }
+        if (cash == 150) {
+            System.out.println("Gambler Won");
+            noOfTimeWon++;
+            cashWon=cashWon+cash;
+        } else {
+            System.out.println("Gambler Loose");
+            noOfTimeLoss++;
+            cashLow=cashLow-cash;
+        }
+    }
+
+    //UC-4 Win or Loose for 20 days
+    public static void winLoose20Days(){
+        int days = 20;
+        for (int i =0; i<days; i++) {
+            resignStake();
+        }
         System.out.println("Number of time Wins in 20 Days: "+ noOfTimeWon);
-        System.out.println("Number of time Looses in 20 Days: "+ noOfTimeloss);
+        System.out.println("Number of time Looses in 20 Days: "+ noOfTimeLoss );
+        System.out.println("Cash-Won: $"+cashWon+" Cash-Lost: $"+cashLow);
     }
 }
