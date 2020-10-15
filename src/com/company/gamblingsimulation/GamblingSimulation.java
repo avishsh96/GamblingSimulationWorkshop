@@ -20,23 +20,31 @@ public class GamblingSimulation {
         }
     }
 
+    //UC-3 IF target hits or stop loss hits
     public static void resignStake() {
-        int cash = STAKE;
-        final int target = 150;
-        final int stop = 50;
-        final int win = 1;
-        while (cash < target && cash > stop) {
-            int random = winLoose();
-            if (random == win) {
-                cash = cash + BET;
+        int noOfTimeWon = 0;
+        int noOfTimeloss = 0;
+        for (int i =0;i<20;i++) {
+            int cash = STAKE;
+            final int target = 150;
+            final int stop = 50;
+            while (cash < target && cash > stop) {
+                int random = winLoose();
+                if (random == win) {
+                    cash = cash + BET;
+                } else {
+                    cash = cash - BET;
+                }
+            }
+            if (cash == 150) {
+                System.out.println("Gambler Won");
+                noOfTimeWon++;
             } else {
-                cash = cash - BET;
+                System.out.println("Gambler Loose");
+                noOfTimeloss++;
             }
         }
-        if (cash == 150){
-            System.out.println("Gambler Won");
-        }else {
-            System.out.println("Gambler Loose");
-        }
+        System.out.println("Number of time Wins in 20 Days: "+ noOfTimeWon);
+        System.out.println("Number of time Looses in 20 Days: "+ noOfTimeloss);
     }
 }
