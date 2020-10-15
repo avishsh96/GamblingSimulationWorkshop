@@ -7,7 +7,7 @@ public class GamblingSimulation {
     static int noOfTimeWon = 0;
     static int cashWon=0;
     static int noOfTimeLoss = 0;
-    static int cashLow=0;
+    static int cashLost=0;
 
     public static void main(String[] args) {
         winLoose20Days();
@@ -44,7 +44,7 @@ public class GamblingSimulation {
         } else {
             System.out.println("Gambler Loose");
             noOfTimeLoss++;
-            cashLow=cashLow-cash;
+            cashLost=cashLost-cash;
         }
     }
 
@@ -56,6 +56,6 @@ public class GamblingSimulation {
         }
         System.out.println("Number of time Wins in 20 Days: "+ noOfTimeWon);
         System.out.println("Number of time Looses in 20 Days: "+ noOfTimeLoss );
-        System.out.println("Cash-Won: $"+cashWon+" Cash-Lost: $"+cashLow);
+        System.out.println("Cash-Won: $"+cashWon+" Cash-Lost: $"+cashLost);
     }
 }
