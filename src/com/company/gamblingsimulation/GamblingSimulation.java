@@ -1,8 +1,8 @@
 package com.company.gamblingsimulation;
 
 public class GamblingSimulation {
-     static int STAKE = 100;
-     static int BET=1;
+    public static int STAKE = 100;
+    public static int BET=1;
 
     public static void main(String[] args) {
         winLoose();
