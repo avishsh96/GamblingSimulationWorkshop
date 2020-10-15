@@ -10,24 +10,24 @@ public class GamblingSimulation {
 
     // UC-2 Win OR Loose
     public static void winLoose(){
-        int target = 150;
-        int stop = 50;
-        int win = 1;
+        final int target = 150;
+        final int stop = 50;
+        final int win = 1;
 
         while(STAKE<target && STAKE>stop){
             int random = (int)Math.round(Math.random());
             if (random == win){
                 System.out.println("Win");
-                STAKE = STAKE+BET;
+                STAKE++;
             }else{
                 System.out.println("Loose");
-                STAKE=STAKE-BET;
+                STAKE--;
             }
         }
         if (STAKE>=150){
             System.out.println("WINnnnnnnnnnnnnnnnn");
         }else {
-            System.out.println("Losssssssssssss");
+            System.out.println("LoooSssssssssss");
         }
 
     }
