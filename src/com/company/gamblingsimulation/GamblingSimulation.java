@@ -18,10 +18,10 @@ public class GamblingSimulation {
             int random = (int)Math.round(Math.random());
             if (random == win){
                 System.out.println("Win");
-                STAKE++;
+                STAKE = STAKE+BET;
             }else{
                 System.out.println("Loose");
-                STAKE--;
+                STAKE=STAKE-BET;
             }
         }
         if (STAKE>=150){
