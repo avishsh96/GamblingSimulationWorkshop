@@ -6,6 +6,8 @@ public class GamblingSimulation {
         final int BET=1;
         winLoose();
     }
+
+    // UC-2 Win OR Loose 
     public static void winLoose(){
         final int win = 1;
         int random = (int)Math.round(Math.random());
