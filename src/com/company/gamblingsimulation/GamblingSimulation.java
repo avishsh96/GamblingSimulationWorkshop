@@ -1,4 +1,4 @@
-package com.gamblingsimulation;
+package com.company.gamblingsimulation;
 
 public class GamblingSimulation {
     public static void main(String[] args) {
@@ -7,7 +7,7 @@ public class GamblingSimulation {
         winLoose();
     }
     public static void winLoose(){
-        int win = 1;
+        final int win = 1;
         int random = (int)Math.round(Math.random());
         if (random == win){
             System.out.println("Win");
