@@ -1,20 +1,29 @@
 package com.company.gamblingsimulation;
 
 public class GamblingSimulation {
+     static int STAKE = 100;
+     static int BET=1;
+
     public static void main(String[] args) {
-        final int STAKE = 100;
-        final int BET=1;
         winLoose();
     }
 
-    // UC-2 Win OR Loose 
+    // UC-2 Win OR Loose
     public static void winLoose(){
-        final int win = 1;
-        int random = (int)Math.round(Math.random());
-        if (random == win){
-            System.out.println("Win");
-        }else{
-            System.out.println("Loose");
+        int target = 150;
+        int stop = 50;
+        int win = 1;
+
+        while(STAKE<target && STAKE>stop){
+            int random = (int)Math.round(Math.random());
+            if (random == win){
+                System.out.println("Win");
+                STAKE = STAKE+BET;
+            }else{
+                System.out.println("Loose");
+                STAKE=STAKE-BET;
+            }
         }
+
     }
 }
